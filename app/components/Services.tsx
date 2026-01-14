@@ -95,7 +95,6 @@ export default function Services() {
                             style={{
                                 top: s.dotPos.top,
                                 left: s.dotPos.left,
-                                backgroundColor: s.dotColor,
                                 transform: 'translate(-50%, -50%)'
                             }}
                         ></motion.div>
