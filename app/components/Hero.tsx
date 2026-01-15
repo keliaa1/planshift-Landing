@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/10"></div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-12 items-center">
+      <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -29,10 +29,10 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col gap-6"
         >
-          <h1 className="text-[120px] leading-[0.9] font-serif uppercase tracking-tight -ml-1">
-            The<br />Perfect<br />Home<sup className="text-4xl top-[-2em]">®</sup>
+          <h1 className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] leading-[0.9] font-serif uppercase tracking-tight -ml-1">
+            The<br />Perfect<br />Home<sup className="text-2xl sm:text-3xl lg:text-4xl top-[-2em]">®</sup>
           </h1>
-          <p className="text-xl font-medium italic opacity-70 tracking-widest pl-2">
+          <p className="text-base sm:text-lg md:text-xl font-medium italic opacity-70 tracking-widest pl-2">
             / We craft custom homes /
           </p>
           <div className="mt-8">
@@ -53,7 +53,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="relative bg-white/90 backdrop-blur-md rounded-[50px] p-8 w-[60%] h-[40%] shadow-2xl flex flex-col z-0 self-start mt-10"
+            className="relative bg-white/90 backdrop-blur-md rounded-[30px] md:rounded-[50px] p-6 md:p-8 w-full md:w-[70%] lg:w-[60%] h-auto md:h-[40%] shadow-2xl flex flex-col z-0 self-start mt-10"
           >
             <div className="flex flex-col gap-6">
               <div className="flex gap-2">

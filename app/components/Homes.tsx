@@ -31,7 +31,7 @@ export default function Homes() {
   ];
 
   return (
-    <section id="homes" className="py-32 px-12 bg-[#f9f7f5]">
+    <section id="homes" className="py-24 md:py-32 px-6 md:px-12 lg:px-24 xl:px-32 bg-[#f9f7f5] w-full max-w-[1920px] mx-auto">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,7 +41,7 @@ export default function Homes() {
           className="mb-20 text-center"
         >
           <span className="text-sm font-medium uppercase tracking-[0.3em] text-stone-400 mb-6 block">Featured Spaces</span>
-          <h2 className="text-6xl font-serif text-stone-800 leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-stone-800 leading-tight">
             Explore dimensions that <br />breathe and inspire
           </h2>
         </motion.div>

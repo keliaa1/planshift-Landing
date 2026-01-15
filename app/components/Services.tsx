@@ -55,7 +55,7 @@ export default function Services() {
           </h2>
         </motion.div>
 
-        <div className="relative w-[1100px] h-[1000px] mt-10">
+        <div className="relative w-full max-w-[1100px] h-[600px] sm:h-[800px] lg:h-[1000px] mt-10 scale-[0.7] sm:scale-[0.8] md:scale-90 lg:scale-95 xl:scale-100 origin-top mx-auto">
             {/* Background Circle */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}

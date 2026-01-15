@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-12 bg-white overflow-hidden">
+    <section id="about" className="py-24 md:py-32 px-6 md:px-12 lg:px-24 xl:px-32 bg-white overflow-hidden w-full max-w-[1920px] mx-auto">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -43,7 +43,7 @@ export default function About() {
         >
           <div>
             <span className="text-sm font-medium uppercase tracking-[0.3em] text-stone-400 mb-6 block">About Us</span>
-            <h2 className="text-6xl font-serif text-stone-800 leading-tight mb-8">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-stone-800 leading-tight mb-8">
               PlanShift: <br />From drawings to dimensions
             </h2>
             <p className="text-lg text-stone-600 leading-relaxed font-medium">

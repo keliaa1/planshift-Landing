@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,23 +45,23 @@ export default function Navbar() {
         animate={{
           backgroundColor: navBg,
           color: navText,
-          marginTop: isCompact ? "2rem" : isScrolled ? "1.5rem" : "2rem",
-          borderRadius: isCompact ? "9999px" : "2rem",
-          paddingTop: isCompact ? "0.75rem" : "1rem", // Increased padding for comfort
-          paddingBottom: isCompact ? "0.75rem" : "1rem",
-          width: isCompact ? "auto" : "50%",
-          paddingLeft: isCompact ? "1.5rem" : "2.5rem", // More space for logo+text
-          paddingRight: isCompact ? "1.5rem" : "2.5rem",
+          marginTop: isCompact ? "1.5rem" : isScrolled ? "1rem" : "1.5rem",
+          borderRadius: isCompact ? "9999px" : "1.5rem",
+          paddingTop: isCompact ? "0.5rem" : "0.75rem",
+          paddingBottom: isCompact ? "0.5rem" : "0.75rem",
+          width: isCompact ? "auto" : "65%",
+          paddingLeft: isCompact ? "1rem" : "1.5rem",
+          paddingRight: isCompact ? "1rem" : "1.5rem",
         }}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }} // Smooth cubic-bezier
-        className="flex items-center justify-between overflow-hidden shadow-2xl backdrop-blur-md pointer-events-auto"
+        className="flex items-center justify-between overflow-hidden shadow-2xl backdrop-blur-md pointer-events-auto w-full max-w-[800px]"
         style={{ position: "relative" }}
       >
         <motion.div layout className="flex items-center gap-2 flex-shrink-0">
-          <div className={`w-6 h-8 clip-path-logo transition-colors duration-500 ${logoBg}`}></div>
+          <div className={`w-5 h-7 clip-path-logo transition-colors duration-500 ${logoBg}`}></div>
           <motion.span
             layout
-            className="text-2xl font-semibold tracking-wider font-sans whitespace-nowrap overflow-hidden"
+            className="text-xl font-semibold tracking-wider font-sans whitespace-nowrap overflow-hidden"
             initial={{ opacity: 1, width: "auto" }}
             animate={{ opacity: 1, width: "auto" }}
           >
@@ -77,22 +78,33 @@ export default function Navbar() {
               transition={{ duration: 0.2 }}
               className="flex items-center justify-between flex-grow ml-12 overflow-hidden"
             >
-              <div className="hidden md:flex items-center gap-12 text-sm font-medium tracking-wide uppercase whitespace-nowrap">
+              <div className="hidden lg:flex items-center gap-6 text-xs font-medium tracking-wide uppercase whitespace-nowrap">
                   <Link href="#services" className="hover:opacity-60 transition-opacity">Services</Link>
                   <Link href="#about" className="hover:opacity-60 transition-opacity">About us</Link>
                   <Link href="#homes" className="hover:opacity-60 transition-opacity">Homes</Link>
                   <Link href="#contact" className="hover:opacity-60 transition-opacity">Contact</Link>
               </div>
 
-              <div className="flex items-center gap-8 ml-auto whitespace-nowrap">
-                  <span className="text-sm font-semibold cursor-pointer">ENG</span>
+              <div className="hidden lg:flex items-center gap-4 ml-auto whitespace-nowrap">
+                  <span className="text-xs font-semibold cursor-pointer">ENG</span>
                   <Link
                       href="#contact"
-                      className={`text-sm font-semibold border-b pb-0.5 tracking-widest hover:opacity-60 transition-all ${borderCol}`}
+                      className={`text-xs font-semibold border-b pb-0.5 tracking-widest hover:opacity-60 transition-all ${borderCol}`}
                   >
                   CONTACT US
                   </Link>
               </div>
+
+              {/* Mobile Hamburger */}
+              <button
+                className={`lg:hidden ml-auto p-2 ${isScrolled ? "text-[#E5E5E5]" : "text-[#2A2522]"}`}
+                onClick={() => setIsMobileOpen(true)}
+              >
+                <div className="space-y-1.5 hover:opacity-70 transition-opacity">
+                    <span className={`block w-6 h-0.5 ${isScrolled ? "bg-[#E5E5E5]" : "bg-[#2A2522]"}`}></span>
+                    <span className={`block w-6 h-0.5 ${isScrolled ? "bg-[#E5E5E5]" : "bg-[#2A2522]"}`}></span>
+                </div>
+              </button>
             </motion.div>
           )}
         </AnimatePresence>
@@ -103,6 +115,39 @@ export default function Navbar() {
           }
         `}</style>
       </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[60] bg-[#1a1a1a] flex flex-col items-center justify-center pointer-events-auto"
+          >
+            <button
+                onClick={() => setIsMobileOpen(false)}
+                className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-4"
+            >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6L18 18" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+            </button>
+
+            <div className="flex flex-col items-center gap-8 text-white">
+                 <Link href="#services" onClick={() => setIsMobileOpen(false)} className="text-3xl font-serif hover:opacity-60 transition-opacity">Services</Link>
+                 <Link href="#about" onClick={() => setIsMobileOpen(false)} className="text-3xl font-serif hover:opacity-60 transition-opacity">About us</Link>
+                 <Link href="#homes" onClick={() => setIsMobileOpen(false)} className="text-3xl font-serif hover:opacity-60 transition-opacity">Homes</Link>
+                 <Link href="#contact" onClick={() => setIsMobileOpen(false)} className="text-3xl font-serif hover:opacity-60 transition-opacity">Contact</Link>
+
+                 <div className="w-12 h-[1px] bg-white/20 my-4"></div>
+
+                 <Link href="#contact" onClick={() => setIsMobileOpen(false)} className="text-sm font-bold tracking-widest uppercase border-b border-white pb-1">Contact Us</Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

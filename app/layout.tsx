@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Jost } from "next/font/google"; // 1. Import Jost
+import { Geist, Geist_Mono, Jost, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,15 +17,17 @@ const jost = Jost({
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-serif",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "PlanShift",
   icons: "/Favicon.png",
+  viewport: "width=device-width, initial-scale=1",
   description: "Your go-to destination for home visualization",
 };
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-}
 
 
 export default function RootLayout({
@@ -36,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jost.variable} antialiased font-jost`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jost.variable} ${playfair.variable} antialiased font-jost`}
       >
         {children}
       </body>
