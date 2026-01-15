@@ -10,7 +10,7 @@ export default function Homes() {
       image: "/image.png",
       tags: ["Minimalist", "Glass", "Stone"],
       status: "Active",
-      link: "https://plan-shift.vercel.app"
+      link: "https://planshift.innov.rw"
     },
     {
       name: "Urban Sanctuary",
@@ -84,22 +84,22 @@ export default function Homes() {
 
               <div className="w-full md:w-1/2 px-4 flex flex-col justify-center">
                 <div className="flex items-center gap-4 mb-4">
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary opacity-50">{home.location}</span>
-                    <div className="h-[1px] w-12 bg-stone-200"></div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-primary opacity-50">{home.location}</span>
+                  <div className="h-[1px] w-12 bg-stone-200"></div>
                 </div>
                 <h3 className="text-4xl font-serif text-stone-800 mb-6 group-hover:translate-x-2 transition-transform duration-500">
                   {home.name}
                   {home.status === 'Active' && <span className="ml-4 text-primary text-2xl font-sans inline-block group-hover:translate-x-2 transition-transform opacity-60">→</span>}
                 </h3>
                 <p className="text-stone-500 leading-relaxed mb-8 max-w-md">
-                   {home.status === 'Active'
+                  {home.status === 'Active'
                     ? "Experience this architectural marvel in full 3D. Explore every corner and understand the spatial harmony before you even step inside."
                     : "Work in progress. We are currently finalizing the 3D spatial textures and lighting for this immersive experience."}
                 </p>
                 {home.status === 'Active' && (
-                    <button className="self-start text-xs font-bold uppercase tracking-[0.2em] border-b border-stone-800 pb-1 hover:opacity-60 transition-opacity">
-                        Enter Experience
-                    </button>
+                  <button className="self-start text-xs font-bold uppercase tracking-[0.2em] border-b border-stone-800 pb-1 hover:opacity-60 transition-opacity">
+                    Enter Experience
+                  </button>
                 )}
               </div>
             </motion.div>
