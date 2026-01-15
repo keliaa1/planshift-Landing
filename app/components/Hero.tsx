@@ -29,8 +29,8 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col gap-6"
         >
-          <h1 className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[120px] leading-[0.9] font-serif uppercase tracking-tight -ml-1">
-            The<br />Perfect<br />Home<sup className="text-2xl sm:text-3xl lg:text-4xl top-[-2em]">®</sup>
+          <h1 className="text-[50px] sm:text-[60px] md:text-[70px] lg:text-[80px] xl:text-[100px] 2xl:text-[120px] leading-[0.9] font-serif uppercase tracking-tight -ml-1">
+            The<br />Perfect<br />Home<sup className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl top-[-2em]">®</sup>
           </h1>
           <p className="text-base sm:text-lg md:text-xl font-medium italic opacity-70 tracking-widest pl-2">
             / We craft custom homes /
@@ -53,7 +53,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="relative bg-white/90 backdrop-blur-md rounded-[30px] md:rounded-[50px] p-6 md:p-8 w-full md:w-[70%] lg:w-[60%] h-auto md:h-[40%] shadow-2xl flex flex-col z-0 self-start mt-10"
+            className="relative bg-white/90 backdrop-blur-md rounded-[30px] md:rounded-[50px] p-6 md:p-8 w-full md:w-[65%] lg:w-[60%] h-auto md:h-[40%] shadow-2xl flex flex-col z-0 self-start mt-10"
           >
             <div className="flex flex-col gap-6">
               <div className="flex gap-2">
@@ -80,54 +80,54 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 1 }}
             className="absolute bottom-0 right-[-10%] w-[100%] h-[90%] z-10 pointer-events-none mr-30"
           >
-              <Image
-                  src="/house3.png"
-                  alt="House Design"
-                  fill
-                  className="object-contain"
-              />
-              {/* Visual Anchors in image */}
-              <div className="absolute top-[30%] left-[45%] w-3 h-3 bg-white/80 rounded-full shadow-lg border border-white pointer-events-auto cursor-help"></div>
-              <div className="absolute top-[50%] left-[62%] w-4 h-4 bg-white/40 rounded-full flex items-center justify-center shadow-lg border border-white/50 pointer-events-auto cursor-help">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-              </div>
-              <div className="absolute bottom-[25%] right-[25%] w-3 h-3 bg-white/80 rounded-full shadow-lg border border-white pointer-events-auto cursor-help"></div>
+            <Image
+              src="/house3.png"
+              alt="House Design"
+              fill
+              className="object-contain"
+            />
+            {/* Visual Anchors in image */}
+            <div className="absolute top-[30%] left-[45%] w-3 h-3 bg-white/80 rounded-full shadow-lg border border-white pointer-events-auto cursor-help"></div>
+            <div className="absolute top-[50%] left-[62%] w-4 h-4 bg-white/40 rounded-full flex items-center justify-center shadow-lg border border-white/50 pointer-events-auto cursor-help">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
+            </div>
+            <div className="absolute bottom-[25%] right-[25%] w-3 h-3 bg-white/80 rounded-full shadow-lg border border-white pointer-events-auto cursor-help"></div>
           </motion.div>
 
           {/* Roomtour Floating Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="absolute top-20 right-[5%] bg-[#E5E2DF] p-4 rounded-[30px] shadow-2xl w-[170px] border border-white/30 z-20"
+            transition={{ delay: 3, duration: 0.8 }}
+            className="absolute top-0 md:top-10 lg:top-20 right-[2%] md:right-[3%] lg:right-[5%] bg-[#E5E2DF] p-4 rounded-[30px] shadow-2xl w-[170px] border border-white/30 z-20"
           >
-             <div className="flex items-center justify-end mb-3 px-1">
-                  <span className="text-[8px] font-black tracking-[0.2em] uppercase text-stone-800 opacity-60">Roomtour</span>
-             </div>
+            <div className="flex items-center justify-end mb-3 px-1">
+              <span className="text-[8px] font-black tracking-[0.2em] uppercase text-stone-800 opacity-60">Roomtour</span>
+            </div>
 
-             {/* Play Button - Floating on the left edge */}
-             <motion.div
-                whileHover={{ scale: 1.1 }}
-                onClick={() => setIsVideoOpen(true)}
-                className="absolute left-[-20px] top-[40%] w-9 h-9 rounded-full bg-stone-500/60 flex items-center justify-center text-white cursor-pointer hover:bg-stone-500/80 transition-colors backdrop-blur-sm z-30 shadow-lg border border-white/20"
-             >
-                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L9 6L1 11V1Z" fill="white" stroke="white" strokeWidth="2" strokeLinejoin="round"/>
-                </svg>
-             </motion.div>
+            {/* Play Button - Floating on the left edge */}
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              onClick={() => setIsVideoOpen(true)}
+              className="absolute left-[-30px] top-[40%] w-9 h-9 rounded-full bg-stone-500/60 flex items-center justify-center text-white cursor-pointer hover:bg-stone-500/80 transition-colors backdrop-blur-sm z-30 shadow-lg border border-white/20"
+            >
+              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L9 6L1 11V1Z" fill="white" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+              </svg>
+            </motion.div>
 
-             <div className="relative h-28 rounded-[20px] overflow-hidden">
-                  <Image
-                      src="/bed.jpg"
-                      alt="Room Tour"
-                      fill
-                      className="object-cover"
-                  />
-             </div>
-             {/* Connecting line to anchor */}
-             <svg className="absolute top-full right-1/2 w-32 h-32 pointer-events-none -z-10" style={{ transform: 'translate(40%, -10%)' }}>
-                <path d="M10 0 L100 80" stroke="#A8A29E" strokeWidth="1" fill="none" opacity="0.6" />
-             </svg>
+            <div className="relative h-28 rounded-[20px] overflow-hidden">
+              <Image
+                src="/bed.jpg"
+                alt="Room Tour"
+                fill
+                className="object-cover"
+              />
+            </div>
+            {/* Connecting line to anchor */}
+            <svg className="absolute top-full right-1/2 w-32 h-32 pointer-events-none -z-10" style={{ transform: 'translate(40%, -10%)' }}>
+              <path d="M10 0 L100 80" stroke="#A8A29E" strokeWidth="1" fill="none" opacity="0.6" />
+            </svg>
           </motion.div>
         </div>
       </div>
@@ -149,77 +149,77 @@ export default function Hero() {
               onClick={(e) => e.stopPropagation()}
               className="bg-[#1C1C1C] w-full max-w-6xl aspect-video rounded-[3rem] relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between"
             >
-                {/* Background / Video Placeholder */}
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 z-10"></div>
-                     <video
-                      src="/PlanShift.mp4"
-                      className="w-full h-full object-cover opacity-60"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    />
-                </div>
+              {/* Background / Video Placeholder */}
+              <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 z-10"></div>
+                <video
+                  src="/PlanShift.mp4"
+                  className="w-full h-full object-cover opacity-60"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </div>
 
-                {/* Top Controls */}
-                <div className="relative z-20 flex justify-end p-8">
-                    <button
-                        onClick={() => setIsVideoOpen(false)}
-                        className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-white/20 transition-colors"
+              {/* Top Controls */}
+              <div className="relative z-20 flex justify-end p-8">
+                <button
+                  onClick={() => setIsVideoOpen(false)}
+                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-white/20 transition-colors"
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M13 1L1 13M1 1L13 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Center Play Button */}
+              <div className="relative z-20 flex-grow flex items-center justify-center flex-col gap-4">
+                <h2 className="text-6xl font-black text-white/10 tracking-widest absolute uppercase pointer-events-none select-none blur-sm">PlanShift</h2>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+                >
+                  <svg width="24" height="28" viewBox="0 0 24 28" fill="none" className="ml-1">
+                    <path d="M2 2L22 14L2 26V2Z" stroke="white" strokeWidth="2" strokeLinejoin="round" fill="white" />
+                  </svg>
+                </motion.div>
+              </div>
+
+              {/* Bottom Details Section */}
+              <div className="relative z-20 p-8 flex flex-col items-center">
+                <AnimatePresence>
+                  {showDetails && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden max-w-2xl text-center mb-4"
                     >
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                            <path d="M13 1L1 13M1 1L13 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
+                      <p className="text-stone-300 font-medium text-lg leading-relaxed">
+                        PlanShift was made by me and Happy as CEOs of Forward. Made in Three.js and Blender, whereby the Blender design was mine.
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
-                {/* Center Play Button */}
-                <div className="relative z-20 flex-grow flex items-center justify-center flex-col gap-4">
-                     <h2 className="text-6xl font-black text-white/10 tracking-widest absolute uppercase pointer-events-none select-none blur-sm">PlanShift</h2>
-                     <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)]"
-                     >
-                        <svg width="24" height="28" viewBox="0 0 24 28" fill="none" className="ml-1">
-                            <path d="M2 2L22 14L2 26V2Z" stroke="white" strokeWidth="2" strokeLinejoin="round" fill="white"/>
-                        </svg>
-                     </motion.div>
-                </div>
-
-                {/* Bottom Details Section */}
-                <div className="relative z-20 p-8 flex flex-col items-center">
-                    <AnimatePresence>
-                        {showDetails && (
-                            <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                className="overflow-hidden max-w-2xl text-center mb-4"
-                            >
-                                <p className="text-stone-300 font-medium text-lg leading-relaxed">
-                                    PlanShift was made by me and Happy as CEOs of Forward. Made in Three.js and Blender, whereby the Blender design was mine.
-                                </p>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    <button
-                        onClick={() => setShowDetails(!showDetails)}
-                        className="flex flex-col items-center gap-2 group opacity-80 hover:opacity-100 transition-opacity"
-                    >
-                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">View Project Details</span>
-                        <motion.div
-                            animate={{ rotate: showDetails ? 180 : 0 }}
-                            className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center"
-                        >
-                             <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-                                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                             </svg>
-                        </motion.div>
-                    </button>
-                </div>
+                <button
+                  onClick={() => setShowDetails(!showDetails)}
+                  className="flex flex-col items-center gap-2 group opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">View Project Details</span>
+                  <motion.div
+                    animate={{ rotate: showDetails ? 180 : 0 }}
+                    className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center"
+                  >
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                      <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </motion.div>
+                </button>
+              </div>
             </motion.div>
           </motion.div>
         )}

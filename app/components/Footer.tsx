@@ -20,7 +20,6 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-3 md:gap-4">
               <a href="mailto:4ward@gmail.com" className="text-xl md:text-2xl font-serif text-white hover:opacity-60 transition-opacity">4ward@gmail.com</a>
-              <a href="tel:+1234567890" className="text-xl md:text-2xl font-serif text-white hover:opacity-60 transition-opacity">+1 (234) 567-890</a>
             </div>
           </div>
 
