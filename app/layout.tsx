@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   icons:"/image.png",
   description: "Your go-to destination for home visualization",
 };
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 
 export default function RootLayout({
   children,
