@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-stone-900 text-stone-300 py-24 px-12 rounded-t-[60px] relative overflow-hidden">
+    <footer id="contact" className="bg-stone-900 text-stone-300 py-24 px-6 md:px-12 lg:px-24 xl:px-32 w-full max-w-[1920px] mx-auto rounded-t-[60px] relative overflow-hidden">
       {/* Decorative Background Text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-serif font-black text-white/[0.02] pointer-events-none whitespace-nowrap">
         PLAN SHIFT

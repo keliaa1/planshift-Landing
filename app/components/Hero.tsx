@@ -1,10 +1,14 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Hero() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+
   return (
-    <div className="relative min-h-screen flex items-center px-12 pt-20 overflow-hidden">
+    <div className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 xl:px-32 pt-20 overflow-hidden w-full max-w-[1920px] mx-auto">
       {/* Background Image Layer */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -104,6 +108,7 @@ export default function Hero() {
              {/* Play Button - Floating on the left edge */}
              <motion.div
                 whileHover={{ scale: 1.1 }}
+                onClick={() => setIsVideoOpen(true)}
                 className="absolute left-[-20px] top-[40%] w-9 h-9 rounded-full bg-stone-500/60 flex items-center justify-center text-white cursor-pointer hover:bg-stone-500/80 transition-colors backdrop-blur-sm z-30 shadow-lg border border-white/20"
              >
                 <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,6 +131,99 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Video Overlay Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-lg p-4 md:p-8"
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#1C1C1C] w-full max-w-6xl aspect-video rounded-[3rem] relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between"
+            >
+                {/* Background / Video Placeholder */}
+                <div className="absolute inset-0 z-0">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 z-10"></div>
+                     <video
+                      src="/PlanShift.mp4"
+                      className="w-full h-full object-cover opacity-60"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                </div>
+
+                {/* Top Controls */}
+                <div className="relative z-20 flex justify-end p-8">
+                    <button
+                        onClick={() => setIsVideoOpen(false)}
+                        className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center hover:bg-white/20 transition-colors"
+                    >
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M13 1L1 13M1 1L13 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Center Play Button */}
+                <div className="relative z-20 flex-grow flex items-center justify-center flex-col gap-4">
+                     <h2 className="text-6xl font-black text-white/10 tracking-widest absolute uppercase pointer-events-none select-none blur-sm">PlanShift</h2>
+                     <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+                     >
+                        <svg width="24" height="28" viewBox="0 0 24 28" fill="none" className="ml-1">
+                            <path d="M2 2L22 14L2 26V2Z" stroke="white" strokeWidth="2" strokeLinejoin="round" fill="white"/>
+                        </svg>
+                     </motion.div>
+                </div>
+
+                {/* Bottom Details Section */}
+                <div className="relative z-20 p-8 flex flex-col items-center">
+                    <AnimatePresence>
+                        {showDetails && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden max-w-2xl text-center mb-4"
+                            >
+                                <p className="text-stone-300 font-medium text-lg leading-relaxed">
+                                    PlanShift was made by me and Happy as CEOs of Forward. Made in Three.js and Blender, whereby the Blender design was mine.
+                                </p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    <button
+                        onClick={() => setShowDetails(!showDetails)}
+                        className="flex flex-col items-center gap-2 group opacity-80 hover:opacity-100 transition-opacity"
+                    >
+                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white">View Project Details</span>
+                        <motion.div
+                            animate={{ rotate: showDetails ? 180 : 0 }}
+                            className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center"
+                        >
+                             <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                             </svg>
+                        </motion.div>
+                    </button>
+                </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
