@@ -6,6 +6,8 @@ import { useState } from "react";
 export default function Hero() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isHoveringVideo, setIsHoveringVideo] = useState(false);
 
   return (
     <div className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 xl:px-32 pt-20 overflow-hidden w-full max-w-[1920px] mx-auto">
@@ -150,15 +152,28 @@ export default function Hero() {
               className="bg-[#1C1C1C] w-full max-w-6xl aspect-video rounded-[3rem] relative overflow-hidden shadow-2xl border border-white/10 flex flex-col justify-between"
             >
               {/* Background / Video Placeholder */}
-              <div className="absolute inset-0 z-0">
+              <div
+                className="absolute inset-0 z-0"
+                onMouseEnter={() => setIsHoveringVideo(true)}
+                onMouseLeave={() => setIsHoveringVideo(false)}
+              >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 z-10"></div>
                 <video
                   src="/PlanShift.mp4"
                   className="w-full h-full object-cover opacity-60"
-                  autoPlay
                   muted
                   loop
                   playsInline
+                  onPlay={() => setIsVideoPlaying(true)}
+                  onPause={() => setIsVideoPlaying(false)}
+                  onClick={(e) => {
+                    const video = e.currentTarget;
+                    if (video.paused) {
+                      video.play();
+                    } else {
+                      video.pause();
+                    }
+                  }}
                 />
               </div>
 
@@ -178,9 +193,26 @@ export default function Hero() {
               <div className="relative z-20 flex-grow flex items-center justify-center flex-col gap-4">
                 <h2 className="text-6xl font-black text-white/10 tracking-widest absolute uppercase pointer-events-none select-none blur-sm">PlanShift</h2>
                 <motion.div
+                  initial={{ opacity: 1 }}
+                  animate={{
+                    opacity: isVideoPlaying && !isHoveringVideo ? 0 : 1,
+                    scale: isVideoPlaying && !isHoveringVideo ? 0.8 : 1
+                  }}
+                  transition={{ duration: 0.3 }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  onClick={(e) => {
+                    const videoElement = document.querySelector('video[src="/PlanShift.mp4"]') as HTMLVideoElement;
+                    if (videoElement) {
+                      if (videoElement.paused) {
+                        videoElement.play();
+                      } else {
+                        videoElement.pause();
+                      }
+                    }
+                  }}
                   className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+                  style={{ pointerEvents: isVideoPlaying && !isHoveringVideo ? 'none' : 'auto' }}
                 >
                   <svg width="24" height="28" viewBox="0 0 24 28" fill="none" className="ml-1">
                     <path d="M2 2L22 14L2 26V2Z" stroke="white" strokeWidth="2" strokeLinejoin="round" fill="white" />
